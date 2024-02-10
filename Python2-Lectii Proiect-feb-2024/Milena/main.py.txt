@@ -1,0 +1,35 @@
+import pygame
+pygame.init()
+WIDTH = 450
+HEIGHT = 400
+X = 180
+XC = 205
+Y = 155
+YC = 200
+FPS = 120
+VEL = 20
+clock = pygame.time.Clock()
+screen = pygame.display.set_mode([WIDTH, HEIGHT])
+game_on = True
+while game_on:
+    clock.tick(FPS)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game_on = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_w:
+                Y -= VEL
+                YC -= VEL
+            if event.key == pygame.K_s:
+                Y += VEL
+                YC += VEL
+            if event.key == pygame.K_a:
+                X -= VEL
+                XC -= VEL
+            if event.key == pygame.K_d:
+                X += VEL
+                XC += VEL
+    screen.fill((195,177,225))
+    pygame.draw.ellipse(screen, (255,255,255), (X, Y, 50 ,70))
+    pygame.draw.circle(screen, (223,175,44), (XC,YC),12)
+    pygame.display.update()

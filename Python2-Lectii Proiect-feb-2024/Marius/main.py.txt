@@ -1,0 +1,60 @@
+import pygame
+import os
+pygame.init()
+clock = pygame.time.Clock()
+WIDTH = 1370
+HEIGHT = 715
+color = (255,255,0)
+lorol = (255,0,0)
+blue = (0,0,255)
+location = 150
+x = 200
+y = 150
+FPS = 120
+VEL = 10
+window = pygame.display.set_mode([WIDTH,HEIGHT])
+pygame.display.set_caption(Sliper Game)
+
+pygame.draw.rect(window,lorol,(200,150,100,50))
+bk = pygame.image.load(images.jfif)
+
+run = True
+while run
+    clock.tick(FPS)
+    for event in pygame.event.get()
+
+        if event.type == pygame.QUIT
+            run = False
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w]
+            y -= VEL
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_s]
+            y += VEL
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_a]
+            x -= VEL
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_d]
+            x += VEL
+
+
+
+
+
+
+    window.fill(color)
+    pygame.draw.rect(window,lorol,(x,y,100,100))
+    pygame.draw.rect(window, blue, (400, 150, 200, 100))
+    pygame.draw.rect(window, blue, (700, 150, 200, 300))
+
+
+
+    pygame.display.update()
+
+
+
+pygame.quit()

@@ -1,0 +1,28 @@
+import pygame
+import math
+VEL = 3
+x = 500
+y = 300
+screen = pygame.display.set_mode([1000, 500])
+FPS = 100
+clock = pygame.time.Clock()
+run = True
+while run:
+    clock.tick(FPS)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+           y -= VEL
+    if keys[pygame.K_s]:
+           y += VEL
+    if keys[pygame.K_a]:
+           x -= VEL
+    if keys[pygame.K_d]:
+           x += VEL
+    screen.fill((255, 255, 255))
+    pygame.draw.rect(screen, (70, 70 , 0), (x, y, 70, 70))
+    pygame.display.update()
+
+

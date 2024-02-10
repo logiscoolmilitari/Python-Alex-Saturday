@@ -1,0 +1,33 @@
+import pygame
+pygame.init()
+FPS = 80
+VEL = 7
+x = 200
+y = 300
+
+screen = pygame.display.set_mode([650, 650])
+
+clock = pygame.time.Clock()
+running = True
+while running:
+    clock.tick(FPS)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_w]:
+        y -= VEL
+    if keys[pygame.K_s]:
+        y += VEL
+    if keys[pygame.K_a]:
+        x -= VEL
+    if keys[pygame.K_d]:
+        x += VEL
+
+    screen.fill((255, 255, 255))
+
+    pygame.draw.circle(screen, (255, 0, 0), (x, y), 75)
+    pygame.display.update()
+    pygame.display.flip()
+
+pygame.quit()
